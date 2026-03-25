@@ -1,3 +1,20 @@
+"""
+The Streaming Sevices's Lost Episodes Challenge
+------------------------
+This script reads a CSV file containing the catalog of series of a streaming service. It cleans and normalizes
+the records, removes duplicates, and writes the results to a new CSV file.
+A report with cleaning statistics is generated in the output folder.
+
+Output:
+    - output/cleaned_episodes.csv  → cleaned and deduplicated records
+    - output/report.md             → cleaning statistics and deduplication strategy
+
+Usage:
+    python main.py
+    → You will be prompted to enter the path to the input CSV file.
+
+"""
+
 import csv
 import os
 from utils import get_header_and_dialect
@@ -15,7 +32,6 @@ def get_io_streams(input_file, output_file):
         raise ValueError("The input file is empty.")
     # Get the header and dialect of the input file
     dialect, has_header = get_header_and_dialect(input_file)
-    print(f"Input file '{input_file}' opened successfully. Dialect detected: {dialect}. Header present: {has_header}")
 
     # Open the input and output files
     raw_file = open(input_file, 'r', encoding="utf-8", errors="replace")

@@ -15,10 +15,12 @@ def get_header_and_dialect(file):
         try:
             has_header = sniffer.has_header(sample)
             first_line = sample.splitlines()[0].lower()
-            if "seriesname" in first_line or "episodetitle" in first_line:
+            header_keywords = ["series name", "seriesname", "episode title", "episodetitle", "season number", "seasonnumber"]
+            if any(keyword in first_line for keyword in header_keywords):
                 has_header = True
-
             dialect = sniffer.sniff(sample)
+            if dialect.delimiter.isalpha():
+                dialect = csv.get_dialect('excel')
         except csv.Error:
             # if sniffing fials, assume default dialect and header exists
             has_header = True
