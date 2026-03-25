@@ -1,0 +1,36 @@
+# --- Python Specific ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.env
+
+# --- Project Specific Outputs ---
+# We ignore the output folder to avoid versioning generated data
+output/
+*.csv
+!episodes.csv
+# Note: if you want to keep 'episodes.csv' as a sample, the "!" prefix 
+# ensures it stays in the repo while other CSVs are ignored.
+
+# --- macOS Specific (DS_Store and more) ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V1
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# --- Editor/IDE Specific ---
+.vscode/
+.idea/
+*.swp
+*.swo
